@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        window.onload = function() {
+            let canvas = document.getElementById('canvas');
+            canvas.width = 1024;
+            canvas.height = 600;
+            let context = canvas.getContext('2d');
+            // 多个路径分开处理
+            context.beginPath();
+            context.moveTo(100, 100);
+            context.lineTo(400, 400);
+            context.lineTo(100, 400);
+            context.lineTo(100, 100);
+            context.closePath();
+            
+            context.lineWidth = 5; // 线条宽度
+            context.strokeStyle='red'; // 线条颜色
+            context.stroke(); // 绘制线条
+
+            context.beginPath();
+            context.moveTo(200, 100);
+            context.lineTo(400, 300);
+            context.closePath();
+
+            context.lineWidth = 5; // 线条宽度
+            context.strokeStyle='black'; // 线条颜色
+            context.stroke();
+        }
+    </script>
+</body>
+</html>

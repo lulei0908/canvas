@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas</title>
+</head>
+<body>
+    <canvas id="canvas" style="border: 1px solid #333;"></canvas> 
+    <script>
+        window.onload = function() {
+            let canvas = document.getElementById('canvas');
+            canvas.width = 1024;
+            canvas.height = 600;
+            let context = canvas.getContext('2d');
+            // 格式：ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise)
+            // x和y参数是圆心坐标，radius是半径，
+            // startAngle和endAngle则是扇形的起始角度和终止角度（以弧度表示），
+            // anticlockwise表示做图时应该逆时针画（true）还是顺时针画（false），这个参数用来控制扇形的方向（比如上半圆还是下半圆）
+            context.lineWidth = 5;
+            context.strokeStyle='#005588';
+            for(let i = 0; i < 10; i++) {
+                context.beginPath();
+                context.arc(50 + i * 100, 60, 40, 0, 2 * Math.PI * (i + 1) / 10, false);
+                context.closePath();
+                context.stroke();
+            }
+            for(let i = 0; i < 10; i++) {
+                context.beginPath();
+                context.arc(50 + i * 100, 180, 40, 0, 2 * Math.PI * (i + 1) / 10, false);
+                context.stroke();
+            }
+            for(let i = 0; i < 10; i++) {
+                context.beginPath();
+                context.arc(50 + i * 100, 300, 40, 0, 2 * Math.PI * (i + 1) / 10, true);
+                context.closePath();
+                context.stroke();
+            }
+            for(let i = 0; i < 10; i++) {
+                context.beginPath();
+                context.arc(50 + i * 100, 420, 40, 0, 2 * Math.PI * (i + 1) / 10, true);
+                context.stroke();
+            }
+
+            context.fillStyle='#005588';
+            for(let i = 0; i < 10; i++) {
+                context.beginPath();
+                context.arc(50 + i * 100, 540, 40, 0, 2 * Math.PI * (i + 1) / 10, false);
+                context.closePath();
+                context.fill();
+            }
+        }
+    </script>
+</body>
+</html>

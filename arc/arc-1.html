@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        window.onload = function() {
+            let canvas = document.getElementById('canvas');
+            canvas.width = 1024;
+            canvas.height = 600;
+            let context = canvas.getContext('2d');
+            // 格式：ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise)
+            // x和y参数是圆心坐标，radius是半径，
+            // startAngle和endAngle则是扇形的起始角度和终止角度（以弧度表示），
+            // anticlockwise表示做图时应该逆时针画（true）还是顺时针画（false），这个参数用来控制扇形的方向（比如上半圆还是下半圆）
+            context.lineWidth = 5;
+            context.strokeStyle='#005588';
+            context.arc(300, 300, 200, 0, Math.PI * 1.5, false);
+            context.stroke();
+        }
+    </script>
+</body>
+</html>
